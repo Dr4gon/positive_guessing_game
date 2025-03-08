@@ -16,16 +16,17 @@ export default function App() {
         style={styles.logo}
         resizeMode="cover"
       />
-      <Text>Gib deine Handynummer ein:</Text>
+      <Text style={styles.text}>Gib deine Handynummer ein:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Handynummer"
         keyboardType="phone-pad"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
       />
-      <Text>Möchtest du mit dieser Nummer fortfahren?</Text>
-      <Text>Hinweise: Spielen ist nur mit Profil möglich.</Text>
+      <Text style={styles.text}>Möchtest du mit dieser Nummer fortfahren?</Text>
+      <Text style={styles.text}>
+        Hinweise: Spielen ist nur mit Profil möglich.
+      </Text>
       <View style={styles.buttonContainer}>
         <Button title="Ja" onPress={handleSubmit} />
         <Button title="Nein" onPress={handleSubmit} />
@@ -48,6 +49,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     padding: "5%",
+  },
+  text: {
+    color: "#94C671",
   },
   logo: {
     width: "100%",
