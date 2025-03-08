@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -28,8 +35,12 @@ export default function App() {
         Hinweise: Spielen ist nur mit Profil möglich.
       </Text>
       <View style={styles.buttonContainer}>
-        <Button title="Ja" onPress={handleSubmit} />
-        <Button title="Nein" onPress={handleSubmit} />
+        <TouchableOpacity style={styles.buttonYes} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Ja</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonNo} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Nein</Text>
+        </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -66,5 +77,19 @@ const styles = StyleSheet.create({
     padding: "10px",
     width: "60%",
     paddingHorizontal: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+  },
+  buttonYes: {
+    backgroundColor: "#94C671",
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonNo: {
+    backgroundColor: "#CF404D",
+    padding: 10,
+    borderRadius: 5,
   },
 });
