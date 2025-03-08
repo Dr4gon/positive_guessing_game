@@ -57,8 +57,10 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "gray",
     borderWidth: 1,
-    marginBottom: 20,
-    width: "100%",
+    marginBottom: 10,
+    marginTop: 10,
+    padding: "10px",
+    width: "60%",
     paddingHorizontal: 10,
   },
 });
