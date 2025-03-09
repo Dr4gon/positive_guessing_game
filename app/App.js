@@ -31,7 +31,7 @@ export default function App() {
         <Text style={styles.text}>Gib deine Handynummer ein:</Text>
         <TextInput
           style={styles.input}
-          keyboardType="phone-pad"
+          inputMode="numeric"
           value={phoneNumber}
           onChangeText={setPhoneNumber}
         />
