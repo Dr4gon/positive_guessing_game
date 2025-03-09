@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     width: "100%",
-    padding: "5%",
+    padding: "10%",
   },
   text: {
     color: "#94C671",
@@ -98,10 +98,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#94C671",
     padding: 10,
     borderRadius: 5,
+    minWidth: 80,
+    alignItems: "center",
   },
   buttonNo: {
     backgroundColor: "#CF404D",
     padding: 10,
     borderRadius: 5,
+    minWidth: 80,
+    alignItems: "center",
   },
 });
