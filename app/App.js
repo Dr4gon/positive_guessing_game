@@ -7,6 +7,8 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 export default function App() {
@@ -17,33 +19,37 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("./assets/logo.png")}
-        style={styles.logo}
-        resizeMode="cover"
-      />
-      <Text style={styles.text}>Gib deine Handynummer ein:</Text>
-      <TextInput
-        style={styles.input}
-        keyboardType="phone-pad"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
-      <Text style={styles.text}>Möchtest du mit dieser Nummer fortfahren?</Text>
-      <Text style={styles.text}>
-        Hinweise: Spielen ist nur mit Profil möglich.
-      </Text>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.buttonYes} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Ja</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonNo} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Nein</Text>
-        </TouchableOpacity>
+    <KeyboardAvoidingView behavior={"position"} style={styles.container}>
+      <View style={styles.container}>
+        <Image
+          source={require("./assets/logo.png")}
+          style={styles.logo}
+          resizeMode="cover"
+        />
+        <Text style={styles.text}>Gib deine Handynummer ein:</Text>
+        <TextInput
+          style={styles.input}
+          keyboardType="phone-pad"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+        />
+        <Text style={styles.text}>
+          Möchtest du mit dieser Nummer fortfahren?
+        </Text>
+        <Text style={styles.text}>
+          Hinweise: Spielen ist nur mit Profil möglich.
+        </Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.buttonYes} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Ja</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonNo} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Nein</Text>
+          </TouchableOpacity>
+        </View>
+        <StatusBar style="auto" />
       </View>
-      <StatusBar style="auto" />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
