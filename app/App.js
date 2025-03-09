@@ -15,6 +15,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [countryPrefix, setCountryPrefix] = useState("");
 
   useEffect(() => {
     const loadPhoneNumber = async () => {
@@ -35,6 +36,8 @@ export default function App() {
   const handleSubmit = () => {
     Keyboard.dismiss();
     setPhoneNumber(phoneNumber);
+    setCountryPrefix(countryPrefix);
+    console.log("Landesvorwahl:", countryPrefix);
     console.log("Eingegebene Handynummer:", phoneNumber);
   };
 
@@ -47,12 +50,20 @@ export default function App() {
           resizeMode="contain"
         />
         <Text style={styles.text}>Gib deine Handynummer ein:</Text>
-        <TextInput
-          style={styles.input}
-          inputMode="numeric"
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-        />
+        <View style={styles.buttonContainer}>
+          <TextInput
+            style={styles.inputPrefix}
+            inputMode="numeric"
+            value={countryPrefix}
+            onChangeText={setCountryPrefix}
+          />
+          <TextInput
+            style={styles.input}
+            inputMode="numeric"
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
+          />
+        </View>
         <Text style={styles.text}>
           Möchtest du mit dieser Nummer fortfahren?
         </Text>
@@ -105,6 +116,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: "10px",
     width: "60%",
+    paddingHorizontal: 10,
+    color: "#94C671",
+  },
+  inputPrefix: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 10,
+    marginTop: 10,
+    padding: "10px",
+    width: "20%",
     paddingHorizontal: 10,
     color: "#94C671",
   },
