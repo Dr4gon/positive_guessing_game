@@ -8,13 +8,14 @@ import {
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
-  Platform,
+  Keyboard,
 } from "react-native";
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleSubmit = () => {
+    Keyboard.dismiss();
     console.log("Eingegebene Handynummer:", phoneNumber);
   };
 
