@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Image,
   StyleSheet,
@@ -11,12 +11,30 @@ import {
   Platform,
   Pressable,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
 
+  useEffect(() => {
+    const loadPhoneNumber = async () => {
+      try {
+        const storedPhoneNumber = await AsyncStorage.getItem("phoneNumber");
+        console.log("The stored phone number is", storedPhoneNumber);
+        if (storedPhoneNumber !== null) {
+          setPhoneNumber(storedPhoneNumber);
+        }
+      } catch (error) {
+        console.error("Failed to load phone number", error);
+      }
+    };
+
+    loadPhoneNumber();
+  }, []);
+
   const handleSubmit = () => {
     Keyboard.dismiss();
+    setPhoneNumber(phoneNumber);
     console.log("Eingegebene Handynummer:", phoneNumber);
   };
 
