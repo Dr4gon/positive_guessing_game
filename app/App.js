@@ -74,11 +74,8 @@ export default function App() {
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>
-            Möchtest du mit dieser Nummer fortfahren?
-          </Text>
-          <Text style={styles.text}>
             Hinweise: Spielen ist nur mit Profil möglich. Wir senden dir mit
-            Bestätigung deiner Nummer einen Code, um deine Identitität zu
+            Bestätigung deiner Nummer (Ja) einen Code, um deine Identitität zu
             verfizieren.
           </Text>
         </View>
