@@ -25,7 +25,7 @@ export default function App() {
         <Image
           source={require("./assets/logo.png")}
           style={styles.logo}
-          resizeMode="cover"
+          resizeMode="center"
         />
         <Text style={styles.text}>Gib deine Handynummer ein:</Text>
         <TextInput
