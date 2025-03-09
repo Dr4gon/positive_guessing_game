@@ -10,8 +10,16 @@ import {
   Keyboard,
   Platform,
   Pressable,
+  Dimensions,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+// Get screen width
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+
+// Calculate responsive font sizes
+const normalFontSize = SCREEN_WIDTH * 0.045; // 4.5% of screen width
+const headingFontSize = SCREEN_WIDTH * 0.06; // 6% of screen width
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -108,6 +116,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#94C671",
+    fontSize: normalFontSize, // Responsive font size
   },
   logo: {
     // https://stackoverflow.com/questions/34180629/react-native-fit-image-in-containing-view-not-the-whole-screen-size
@@ -140,7 +149,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: normalFontSize, // Responsive font size
   },
   buttonYes: {
     backgroundColor: "#94C671",
