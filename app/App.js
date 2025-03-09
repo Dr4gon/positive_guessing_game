@@ -53,7 +53,7 @@ export default function App() {
         <View style={styles.buttonContainer}>
           <TextInput
             style={styles.inputPrefix}
-            inputMode="numeric"
+            inputMode="text"
             value={countryPrefix}
             onChangeText={setCountryPrefix}
           />
