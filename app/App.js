@@ -9,6 +9,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Keyboard,
+  Platform,
 } from "react-native";
 
 export default function App() {
@@ -72,8 +73,11 @@ const styles = StyleSheet.create({
     color: "#94C671",
   },
   logo: {
-    width: "100%",
-    height: "80%",
+    // https://stackoverflow.com/questions/34180629/react-native-fit-image-in-containing-view-not-the-whole-screen-size
+    width: "90%",
+    height:
+      Platform.OS === "ios" || Platform.OS === "android" ? undefined : "100%", // fixes web, windows and macos view for development
+    aspectRatio: 1,
   },
   input: {
     height: 40,
