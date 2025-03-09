@@ -5,11 +5,11 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
   Keyboard,
   Platform,
+  Pressable,
 } from "react-native";
 
 export default function App() {
@@ -42,12 +42,12 @@ export default function App() {
           Hinweise: Spielen ist nur mit Profil möglich.
         </Text>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonYes} onPress={handleSubmit}>
+          <Pressable style={styles.buttonYes} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Ja</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonNo} onPress={handleSubmit}>
+          </Pressable>
+          <Pressable style={styles.buttonNo} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Nein</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <StatusBar style="auto" />
       </View>
