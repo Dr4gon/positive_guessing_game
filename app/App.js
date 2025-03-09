@@ -64,12 +64,16 @@ export default function App() {
             onChangeText={setPhoneNumber}
           />
         </View>
-        <Text style={styles.text}>
-          Möchtest du mit dieser Nummer fortfahren?
-        </Text>
-        <Text style={styles.text}>
-          Hinweise: Spielen ist nur mit Profil möglich.
-        </Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            Möchtest du mit dieser Nummer fortfahren?
+          </Text>
+          <Text style={styles.text}>
+            Hinweise: Spielen ist nur mit Profil möglich. Wir senden dir mit
+            Bestätigung deiner Nummer einen Code, um deine Identitität zu
+            verfizieren.
+          </Text>
+        </View>
         <View style={styles.buttonContainer}>
           <Pressable style={styles.buttonYes} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Ja</Text>
@@ -97,6 +101,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     padding: "10%",
+  },
+  textContainer: {
+    flexDirection: "column",
+    width: "90%",
   },
   text: {
     color: "#94C671",
